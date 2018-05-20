@@ -1,0 +1,73 @@
+﻿
+@model TestApp.Models.err
+@{
+    ViewBag.Title = Model.id;
+}
+
+
+
+<h2>Ошибка @Model.id</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Дата создания</dt>
+        <dd>@Model.date</dd>
+
+        <dt>Короткое описание</dt>
+        <dd>@Model.s_descript</dd>
+
+        <dt>Подробное описание</dt>
+        <dd>@Model.f_descript</dd>
+
+        <dt>Статус</dt>
+        <dd>@Model.status.text</dd>
+
+        <dt>Срочность</dt>
+        <dd>@Model.urgency.text</dd>
+
+        <dt>Критичность</dt>
+        <dd>@Model.criticality.text</dd>
+    </dl>
+    
+</div>
+<div>
+    <div>
+        <h3>История ошибки</h3>
+        <table class="table">
+
+
+            <tr>
+                <th>
+                    Дата
+                </th>
+                <th>
+                    Состояние
+                </th>
+                <th>
+                    Пользователь
+                </th>
+                <th>
+                    Комментарий
+                </th>
+            </tr>
+
+
+            @foreach (var item in Model.Histories)
+        {
+            <tr>
+
+                <td>@item.date</td>
+
+
+                <td>@item.act</td>
+
+
+                <td>@item.user_id</td>
+
+                <td>@item.comnt</td>
+            </tr>
+    }
+        </table>
+
+    </div>
+</div>
+

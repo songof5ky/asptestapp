@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TestApp.Models.User>
+@{
+    ViewBag.Title = "Cписок пользователей ";
+}
+
+<table class="table">
+
+    
+        <tr>
+            <th>
+                Логин
+            </th>
+            <th>
+                Имя
+            </th>
+            <th>
+                Фамилия
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.username</td>
+                <td>@item.first_name</td>
+                <td>@item.last_name</td>
+
+            </tr>
+        }
+    </table>

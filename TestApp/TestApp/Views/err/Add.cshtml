@@ -1,0 +1,49 @@
+﻿
+@model TestApp.ViewModels.errModel
+@using TestApp.ViewModels
+@{
+    ViewData["Title"] = "Errors";
+}
+
+
+
+<h2>Errors</h2>
+
+ 
+<form asp-action="Add" asp-controller="err">
+    <div>
+
+        <div>
+            <label asp-for="s_descript">Введите краткое описание   </label><br />
+            <input type="text"   required asp-for="s_descript" />
+            <span asp-validation-for="s_descript" />
+        </div>
+        <div>
+            <label asp-for="f_descript">Введите полное описание </label><br />
+            <textarea id="f_descript" cols="20" rows="2" required asp-for="f_descript" runat="server"></textarea>
+            <span asp-validation-for="f_descript" />
+        </div>
+       
+        <div>
+            <select id="urgency" name="urgencyId" required>
+                <option value="">Срочность</option>
+                <option value="1"> Очень Срочно</option>
+                <option value="2">Срочно</option>
+                <option value="3">Несрочно</option>
+                <option value="4">Совсем несрочно</option>
+            </select>
+        </div>
+        <div>
+            <select id="criticalityId" name="criticalityId" required>
+                <option value="">Критичность</option>
+                <option value="1"> Авария</option>
+                <option value="2">Критичная</option>
+                <option value="3">Некритичная</option>
+                <option value="4">Запрос на изменение</option>
+            </select>
+        </div>
+        <div>
+            <input type="submit" value="Отправить" />
+        </div>
+    </div>
+</form>

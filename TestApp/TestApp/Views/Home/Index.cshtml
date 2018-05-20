@@ -1,0 +1,34 @@
+﻿@model IEnumerable<TestApp.Models.err>
+@{
+    ViewBag.Title = "Все ошибки";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.idSort">
+                Id
+            </a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.dateSort">
+               Дата
+            </a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.usernameSort">
+                Пользователь
+            </a>
+        </th>
+    </tr>
+    @foreach (err u in Model)
+    {
+        <tr><td>@u.id</td><td>@u.date</td><td>@u.user_id</td><td>
+    <a asp-action="Details" asp-controller="err" asp-route-id="@u.id">Подробнее</a> |
+    <a asp-action="Update" asp-controller="err" asp-route-id="@u.id">Изменить</a>
+
+
+</td></tr>
+    }
+</table>
+
